@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');  // Import the cors package
 const fs = require('fs').promises;
 const path = require('path');
+const bodyParser = require('body-parser')
 const process = require('process');
 const { authenticate } = require('@google-cloud/local-auth');
 const { SpacesServiceClient } = require('@google-apps/meet').v2;
@@ -18,7 +19,8 @@ const CREDENTIALS_PATH = path.join(process.cwd(), 'credentials.json');
 
 const app = express();
 const port = process.env.PORT || 5000;
-
+app.use(bodyParser.json({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());  // Use the cors middleware
 
 /**

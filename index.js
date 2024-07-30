@@ -15,7 +15,7 @@ const SCOPES = ['https://www.googleapis.com/auth/meetings.space.created'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = path.join(process.cwd(), 'token.json');
-const CREDENTIALS_PATH = path.join(process.cwd(), 'credentials.json');
+const CREDENTIALS_PATH = path.join(process.cwd(), 'token.json');
 
 const app = express();
 const port = process.env.PORT || 5000;
